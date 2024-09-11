@@ -38,6 +38,8 @@
   export let mode = '';
   export let scrollableContainerSelector = '';
   export let no_tracking = false;
+  export let answerTitleLabel = '';
+  export let askMoreLabel = '';
   $: darkMode = mode === 'dark';
 
   const showLoading = pendingResults.pipe(debounceTime(1500));
@@ -117,7 +119,7 @@
       <div class="results-container">
         <div class="results">
           {#if $isAnswerEnabled}
-            <InitialAnswer />
+            <InitialAnswer {answerTitleLabel} {askMoreLabel} />
             {#if $jsonSchemaEnabled && $jsonAnswer}
               <JsonAnswer jsonAnswer={$jsonAnswer} jsonSchema={$widgetJsonSchema} />
             {/if}
