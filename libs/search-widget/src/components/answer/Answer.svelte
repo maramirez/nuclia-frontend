@@ -33,6 +33,7 @@
   export let answer: Partial<Ask.Answer>;
   export let rank = 0;
   export let initialAnswer = false;
+  export let askMoreLabel: string;
   let text = '';
   let selectedCitation: number | undefined;
   let element: HTMLElement | undefined;
@@ -248,7 +249,7 @@
               aspect="basic"
               size="small"
               on:click={() => dispatch('openChat')}>
-              <span class="go-to-chat title-s">{$_('answer.chat-action')}</span>
+              <span class="go-to-chat title-s">{askMoreLabel || $_('answer.chat-action')}</span>
             </Button>
           {/if}
         {/if}

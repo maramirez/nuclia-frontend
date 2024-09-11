@@ -6,6 +6,8 @@
   import { trackingEngagement } from '../../core/stores/search.store';
 
   let showChat = false;
+  export let askMoreLabel = '';
+  export let answerTitleLabel = '';
 
   function openChat() {
     showChat = true;
@@ -32,11 +34,12 @@
         {/if}
       </strong>
     {:else}
-      <h3 class="title-s">{$_('answer.title')}</h3>
+      <h3 class="title-s">{answerTitleLabel || $_('answer.title')}</h3>
       <Answer
         answer={$firstAnswer}
         rank={0}
         initialAnswer={true}
+        askMoreLabel={askMoreLabel}
         on:openChat={openChat} />
     {/if}
   </div>

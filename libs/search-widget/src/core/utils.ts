@@ -87,7 +87,7 @@ export function formatSize(bytes: number): string {
 }
 
 export const formatQueryKey = (key: string): string => {
-  return `__nuclia_${key}__`;
+  return `${key}`;
 };
 
 export const updateQueryParams = (urlParams: URLSearchParams) => {
